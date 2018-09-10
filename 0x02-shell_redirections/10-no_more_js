@@ -1,2 +1,2 @@
 #!/bin/bash
-find . *.js -type f -print | xargs /bin/rm -f
+find . *.js -maxdepth 1 -type f -print | xargs /bin/rm -f
