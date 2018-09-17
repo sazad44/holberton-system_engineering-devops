@@ -1,0 +1,2 @@
+#!/bin/bash
+sort | grep -c | sort -gr | rev | cut -f 1 | rev
