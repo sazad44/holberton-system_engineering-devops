@@ -1,2 +1,3 @@
 #!/bin/bash
-awk 'NR % 2 == 0'
+paste - - | cut -f 1
+
