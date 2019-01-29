@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script extracts IP and STCode from a log.
+
+larray=($(awk -F " " '{$1=$1} 1' <<<"apache-access.log"))
+echo "${larray[0]} ${larray[6]}"
