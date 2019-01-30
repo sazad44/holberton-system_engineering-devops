@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Prints current processes for all users in user-oriented format.
 
-ps axu
+ps axuf
