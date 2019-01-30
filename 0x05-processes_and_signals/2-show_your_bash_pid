@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Prints all lines of process summary with bash.
+# shellcheck disable=SC2009
+
+ps axuf | grep "bash"
