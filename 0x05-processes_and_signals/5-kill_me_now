@@ -2,4 +2,4 @@
 # This script kills a process in another terminal.
 
 pid=$(pidof bash ./4-to_infinity_and_beyond | cut -d " " -f 3)
-kill $pid
+kill "$pid"
