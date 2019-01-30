@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script prints a message infinitely and changes behavior when receiving SIGTERM.
+
+while true; do
+      echo "To infinity and beyond"
+      sleep 2
+      trap 'echo "I am invincible!!!"' SIGTERM
+done
