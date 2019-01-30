@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script kills the process that changes behavior of SIGTERM.
+
+pkill -9 -f ./7-highlander
