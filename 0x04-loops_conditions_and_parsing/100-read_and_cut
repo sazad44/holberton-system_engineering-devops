@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script reads a file and cuts certain columns out.
+
+while read -e text; do echo "$text" | cut -d ":" -f1,3,6; done < /etc/passwd
