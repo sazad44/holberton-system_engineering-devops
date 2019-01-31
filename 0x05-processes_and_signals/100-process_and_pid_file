@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script saves the pid in a file and develops messages based on the signal.
+
+sudo touch /var/run/holbertonscript.pid
+sudo chmod 777 /var/run/holbertonscript.pid
+echo $BASHPID >> /var/run/holbertonscript.pid
+while true; do
+      echo "To infinity and beyond"
+      sleep 2
+      trap "echo 'I hate the kill command'; sudo rm /var/run/holbertonscript.pid; exit 1" SIGTERM
+      trap "echo 'Y U no love me?!'" SIGINT
+      trap "sudo rm /var/run/holbertonscript.pid; exit 1" SIGQUIT
+done
