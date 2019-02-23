@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script shows active IPv4 IPs on machine
+
+ip -4 -o addr show | cut -d ' ' -f 7 | cut -d '/' -f 1 | sort
