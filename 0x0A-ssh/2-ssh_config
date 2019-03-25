@@ -17,13 +17,13 @@
 # ssh_config(5) man page.
 
 Host *
-   XAuthLocation /opt/X11/bin/xauth
+#   XAuthLocation /opt/X11/bin/xauth
 #   ForwardAgent no
 #   ForwardX11 no
 #   ForwardX11Trusted yes
-#   RhostsRSAAuthentication no
+#   RhostsRSAAuthentication yes
 #   RSAAuthentication yes
-#   PasswordAuthentication no
+   PasswordAuthentication no
 #   HostbasedAuthentication no
 #   GSSAPIAuthentication no
 #   GSSAPIDelegateCredentials no
@@ -54,4 +54,4 @@ Host *
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
     IdentityFile ~/.ssh/holberton
-    PreferredAuthentications publickey,password
+#    PreferredAuthentications publickey,password
