@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# generate RSA key pair with file, bits, passphrase specified
+
+ssh-keygen -f holberton -b 4096 -P betty
