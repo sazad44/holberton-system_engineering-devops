@@ -12,12 +12,11 @@ events {
 }
 
 http {
-    index index.html index.htm;
     server {
-        listen 80;
+        listen 80 default_server;
         root /data/www;
         location / {
-            try_files \$uri \$uri/ /index.html;
+            index index.html index.html;
         }
     }
 }
