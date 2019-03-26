@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Sets Up NGINX server to return a page that contains string
+
+sudo echo "Holberton School" > /usr/share/nginx/html/index.html
+sudo nginx -s reload
