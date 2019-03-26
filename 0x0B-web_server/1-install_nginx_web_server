@@ -2,17 +2,15 @@
 #Sets Up NGINX server to return a page that contains string
 
 sudo apt-get -y install nginx
-sudo mkdir -p /data/www
+sudo mkdir -p /etc/nginx/html
+cd /etc/nginx/html
 echo "Holberton School for the win!" > index.html
-sudo cp index.html /data/www/
-sudo cat > default <<EOF
-server {
+cd /etc/nginx/sites-available
+echo "server {
     listen 80 default_server;
     root /data/www;
     location / {
         index index.html index.html;
     }
-}
-EOF
-sudo cp default /etc/nginx/sites-available/default
+}" > default
 sudo service nginx restart
