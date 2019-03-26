@@ -3,7 +3,7 @@
 
 sudo apt-get -y install nginx
 sudo mkdir -p /data/www
-echo "Holberton School" > index.html
+echo "Holberton School for the win!" > index.html
 sudo cp index.html /data/www/index.html
 sudo cat > nginx.conf <<EOF
 events {
@@ -12,7 +12,6 @@ events {
 }
 
 http {
-    sendfile off;
     index index.html index.htm;
     server {
         listen 80;
