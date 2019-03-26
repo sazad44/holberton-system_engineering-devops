@@ -6,13 +6,11 @@ sudo mkdir -p /data/www
 echo "Holberton School for the win!" > index.html
 sudo cp index.html /data/www/
 sudo cat > default <<EOF
-http {
-    server {
-        listen 80 default_server;
-        root /data/www;
-        location / {
-            index index.html index.html;
-        }
+server {
+    listen 80 default_server;
+    root /data/www;
+    location / {
+        index index.html index.html;
     }
 }
 EOF
