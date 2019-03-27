@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Sets Up NGINX server to return a page that contains string
+#Set Up NGINX server to return a page that contains string
 
 sudo apt-get -y install nginx
 sudo mkdir -p /data/www
