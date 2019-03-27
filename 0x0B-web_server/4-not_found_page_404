@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#Set Up NGINX server to return a page that contains string
+
+apt-get -y install nginx
+mkdir -p /data/www
+echo "Holberton School for the win!" > index.html
+echo "Ceci n'est pas une page" > 404.html
+cp index.html /data/www/
+cat > default <<EOF
+    server {
+        error_page 404 = /data/www/404.html;
+        return 301 http://samieazad.space/redirect_me;
+        listen 80 default_server;
+        root /data/www;
+        location / {
+            index index.html index.html;
+        }
+    }
+EOF
+cp default /etc/nginx/sites-available/default
+cat > nginx.conf <<EOF
+events {
+}
+
+http {
+    server {
+        error_page 404 = /data/www/404.html;
+        return 301 http://samieazad.space/redirect_me;
+        listen 80 default_server;
+        root /data/www;
+        location / {
+            index index.html index.html;
+        }
+    }
+}
+EOF
+cp nginx.conf /etc/nginx/nginx.conf
+sudo service nginx restart
