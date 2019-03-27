@@ -4,7 +4,7 @@
 apt-get -y install nginx
 mkdir -p /data/www
 echo "Holberton School for the win!" > index.html
-echo "Ceci n'est pas une page" > 404.html
+echo "Ceci n'est pas une page it's a 404" > 404.html
 cp index.html /data/www/
 cp 404.html /data/www/
 cat > default <<EOF
@@ -16,7 +16,7 @@ server {
         index index.html index.html;
     }
     location = /404.html {
-        return 404;
+        internal;
     }
     location = /redirect_me {
        return 301 https://google.com;
@@ -37,7 +37,7 @@ http {
             index index.html index.html;
         }
         location = /404.html {
-            return 404;
+            internal;
         }
         location = /redirect_me {
             return 301 https://google.com;
