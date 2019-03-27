@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 #Sets Up NGINX server to return a page that contains string
 
-sudo apt-get -y install nginx
-sudo mkdir -p /etc/nginx/html
-cd /etc/nginx/html
-echo "Holberton School for the win!" > index.html
-cd /etc/nginx/sites-available
+apt-get -y install nginx
+mkdir -p /etc/nginx/html
+echo "Holberton School for the win!" > /etc/nginx/html/index.html
 echo "server {
     listen 80 default_server;
-    root /data/www;
+    root /etc/nginx/html;
     location / {
         index index.html index.html;
     }
-}" > default
+}" > /etc/nginx/sites-available/default
 sudo service nginx restart
