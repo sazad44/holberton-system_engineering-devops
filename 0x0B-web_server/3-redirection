@@ -7,7 +7,7 @@ echo "Holberton School for the win!" > index.html
 cp index.html /data/www/
 cat > default <<EOF
     server {
-        rewrite ^/redirect_me$ https://google.com permanent;
+        return 301 http://samieazad.space/redirect_me;
         listen 80 default_server;
         root /data/www;
         location / {
@@ -22,7 +22,7 @@ events {
 
 http {
     server {
-        rewrite ^/redirect_me$ https://google.com permanent;
+        return 301 http://samieazad.space/redirect_me;
         listen 80 default_server;
         root /data/www;
         location / {
