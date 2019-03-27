@@ -16,4 +16,20 @@ cat > default <<EOF
     }
 EOF
 cp default /etc/nginx/sites-available/default
+cat > nginx.conf <<EOF
+events {
+}
+
+http {
+    server {
+        rewrite ^/redirect_me$ https://google.com permanent;
+        listen 80 default_server;
+        root /data/www;
+        location / {
+            index index.html index.html;
+        }
+    }
+}
+EOF
+cp nginx.conf /etc/nginx/sites-available/nginx.conf
 sudo service nginx restart
