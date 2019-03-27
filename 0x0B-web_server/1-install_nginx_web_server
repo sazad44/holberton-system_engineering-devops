@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 #Set Up NGINX server to return a page that contains string
 
-sudo apt-get -y install nginx
-sudo mkdir -p /data/www
+apt-get -y install nginx
+mkdir -p /data/www
 echo "Holberton School for the win!" > index.html
-sudo cp index.html /data/www/
-sudo cat > default <<EOF
-events {
-    worker_connections 768;
-}
-http {
+cp index.html /data/www/
+cat > default <<EOF
     server {
         listen 80 default_server;
         root /data/www;
@@ -17,7 +13,6 @@ http {
             index index.html index.html;
         }
     }
-}
 EOF
-sudo cp default /etc/nginx/sites-available/default
+cp default /etc/nginx/sites-available/default
 sudo service nginx restart
