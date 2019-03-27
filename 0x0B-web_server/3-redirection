@@ -7,11 +7,13 @@ echo "Holberton School for the win!" > index.html
 cp index.html /data/www/
 cat > default <<EOF
     server {
-        return 301 http://samieazad.space/redirect_me;
         listen 80 default_server;
         root /data/www;
         location / {
             index index.html index.html;
+        }
+        location = /redirect_me {
+            return 301 https://google.com;
         }
     }
 EOF
@@ -22,11 +24,13 @@ events {
 
 http {
     server {
-        return 301 http://samieazad.space/redirect_me;
         listen 80 default_server;
         root /data/www;
         location / {
             index index.html index.html;
+        }
+        location = /redirect_me {
+            return 301 https://google.com;
         }
     }
 }
