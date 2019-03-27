@@ -7,26 +7,24 @@ echo "Holberton School for the win!" > index.html
 echo "Ceci n'est pas une page oui oui" > 404.html
 cp index.html /data/www/
 cp 404.html /data/www/
-cat > default <<EOF """"
-EOF
-    server {
-        listen 80 default_server;
-        root /data/www;
-        error_page 404 /404.html;
-        location / {
-            index index.html index.html;
-        }
-        location = /404.html {
-            internal;
-        }
-        location = /redirect_me {
-            return 301 https://google.com;
-        }
+cat > default <<EOF
+server {
+    listen 80 default_server;
+    root /data/www;
+    error_page 404 /404.html;
+    location / {
+        index index.html index.html;
     }
+    location = /404.html {
+        internal;
+    }
+    location = /redirect_me {
+       return 301 https://google.com;
+    }
+}
 EOF
 cp default /etc/nginx/sites-available/default
-cat > nginx.conf <<EOF }}}}
-EOF
+cat > nginx.conf <<EOF
 events {
 }
 
