@@ -5,7 +5,7 @@ apt-get -y install nginx
 mkdir -p /data/www
 echo "Holberton School for the win!" > index.html
 cp index.html /data/www/
-cat > default <<EOF ""
+cat > default <<EOF
     server {
         return 301 http://samieazad.space/redirect_me;
         listen 80 default_server;
@@ -16,7 +16,7 @@ cat > default <<EOF ""
     }
 EOF
 cp default /etc/nginx/sites-available/default
-cat > nginx.conf <<EOF }}
+cat > nginx.conf <<EOF
 events {
 }
 http {
