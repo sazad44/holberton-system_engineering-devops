@@ -13,7 +13,7 @@ server {
         index index.html index.html;
     }
     location /redirect_me {
-        return 301 http://samieazad.space/redirect_me;
+        return 301 https://google.com;
     }
 }
 EOF
@@ -29,7 +29,7 @@ http {
             index index.html index.html;
         }
         location /redirect_me {
-            return 301 http://samieazad.space/redirect_me;
+            return 301 https://google.com;
         }
     }
 }
