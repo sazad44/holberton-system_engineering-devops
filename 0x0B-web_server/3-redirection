@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Set Up NGINX server to return a page that contains string
+
+apt-get -y install nginx
+mkdir -p /data/www
+echo "Holberton School for the win!" > index.html
+cp index.html /data/www/
+cat > default <<EOF
+    server {
+        rewrite ^/redirect_me$ https://google.com permanent;
+        listen 80 default_server;
+        root /data/www;
+        location / {
+            index index.html index.html;
+        }
+    }
+EOF
+cp default /etc/nginx/sites-available/default
+sudo service nginx restart
