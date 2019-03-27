@@ -31,5 +31,5 @@ http {
     }
 }
 EOF
-cp nginx.conf /etc/nginx/sites-available/nginx.conf
+cp nginx.conf /etc/nginx/nginx.conf
 sudo service nginx restart
