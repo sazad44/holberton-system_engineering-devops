@@ -1,3 +1,4 @@
+# Configures server with holberton file
 file { '/tmp/holberton':
   ensure => file,
   path   => '/tmp/holberton',
