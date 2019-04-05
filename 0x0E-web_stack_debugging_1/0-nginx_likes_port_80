@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Setting up server to curl port 80 with no issues
 apt-get update
 apt-get -y install curl
 rm /etc/nginx/sites-available/*
