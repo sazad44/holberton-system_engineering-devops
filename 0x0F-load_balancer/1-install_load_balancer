@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Setting up HAProxy on load balancer with version greater than 1.5
+apt-get -y install software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-1.8
+apt-get update
+apt-get -y install haproxy=1.8.\*
+sed -i '/ENABLED/ s/0/1/' /etc/default/haproxy
+mv /etc/haproxy/haproxy.cfg .
+cat > /etc/haproxy/haproxy.cfg <<EOF
+global
+    log 127.0.0.1 local0 notice
+    maxconn 2000
+    user haproxy
+    group haproxy
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option  redispatch
+    timeout connect 5000
+    timeout client 10000
+    timeout server 10000
+
+listen web-server
+
+bind 0.0.0.0:80
+
+    balance roundrobin
+    server 530-web-01 35.190.184.163:80 check
+    server 530-web-02 35.185.88.238:80  check
+EOF
+service haproxy restart
