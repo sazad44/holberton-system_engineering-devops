@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Installing new server to serve content
-sudo apt-get install -y lighttpd
-cp /usr/share/nginx/html/index.html /var/www/index.lighttpd.html
-sudo service lighttpd start
+./0-nginx_likes_port_80
+echo "hi" > /var/run/nginx.pid
+echo "hi" > /run/nginx.pid
