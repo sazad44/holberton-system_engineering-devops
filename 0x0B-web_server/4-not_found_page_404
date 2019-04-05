@@ -4,18 +4,24 @@
 apt-get -y install nginx
 mkdir -p /data/www
 echo "Holberton School for the win!" > index.html
-echo "Ceci n'est pas une page" > 404.html
+echo "Ceci n'est pas une page it's a 404!" > 404.html
 cp index.html /data/www/
+cp 404.html /data/www/
 cat > default <<EOF
-    server {
-        error_page 404 = /data/www/404.html;
-        return 301 http://samieazad.space/redirect_me;
-        listen 80 default_server;
-        root /data/www;
-        location / {
-            index index.html index.html;
-        }
+server {
+    listen 80 default_server;
+    root /data/www;
+    error_page 404 /404.html;
+    location / {
+        index index.html index.html;
     }
+    location = /404.html {
+        internal;
+    }
+    location /redirect_me {
+       return 301 https://google.com;
+    }
+}
 EOF
 cp default /etc/nginx/sites-available/default
 cat > nginx.conf <<EOF
@@ -24,13 +30,19 @@ events {
 
 http {
     server {
-        error_page 404 = /data/www/404.html;
-        return 301 http://samieazad.space/redirect_me;
         listen 80 default_server;
         root /data/www;
+        error_page 404 /404.html;
         location / {
             index index.html index.html;
         }
+        location = /404.html {
+            internal;
+        }
+        location /redirect_me {
+            return 301 https://google.com;
+        }
+
     }
 }
 EOF
