@@ -25,28 +25,4 @@ server {
 }
 EOF
 cp default /etc/nginx/sites-available/default
-cat > nginx.conf <<EOF
-events {
-}
-
-http {
-    server {
-        listen 80 default_server;
-        root /data/www;
-        error_page 404 /404.html;
-        location / {
-            index index.html index.html;
-            add_header X-Served-By "$HOSTNAME";
-        }
-        location = /404.html {
-            internal;
-        }
-        location /redirect_me {
-            return 301 https://google.com;
-        }
-
-    }
-}
-EOF
-cp nginx.conf /etc/nginx/nginx.conf
 sudo service nginx restart
