@@ -14,8 +14,8 @@ awk -v bus="$bus" '{ print "The subdomain " bus " is a " $4 " record and points 
     done
 }
 
-if [ $# -eq 1 ]; then
-    func1 $1
+if [ "$#" -eq 1 ]; then
+    func1 "$1"
 else
-    func1 $1 $2
+    func1 "$1" "$2"
 fi
