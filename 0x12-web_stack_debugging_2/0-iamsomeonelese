@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Takes user input and runs whoami as them
+sudo -u "$1" whoami
