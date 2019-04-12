@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Extracts information from dig of website and prints out result
+
+if [ $# -eq 1 ]; then
+    subs="www lb-01 web-01 web-02"
+else
+    subs="$2"
+fi
+for bus in $subs
+do
+    dig "$bus".samieazad.space | awk '!/;/' | grep '[[:blank:]]' |\
+awk -v bus="$bus" '{ print "The subdomain " bus " is a " $4 " record and points\
+to " $5 }' ; echo | grep '[[:blank:]]'
+done
