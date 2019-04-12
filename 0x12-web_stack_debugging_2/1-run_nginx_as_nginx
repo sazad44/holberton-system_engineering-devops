@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configures nginx to be running under nginx user
+netstat -lpn | grep apache2 | cut -d " " -f 58 | cut -d '/' -f1 | xargs kill
+chown -R nginx /etc/nginx
+chmod 700 /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo -u nginx service nginx restart
