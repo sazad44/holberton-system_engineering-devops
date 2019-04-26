@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script backups mysql database and compresses it
+mysqldump -uroot -p$1 --opt --all-databases > backup.sql
+tar -czf $(date +%d-%m-%Y).tar.gz backup.sql
