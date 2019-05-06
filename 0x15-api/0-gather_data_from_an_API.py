@@ -21,4 +21,4 @@ if __name__ == "__main__":
     print('Employee {} is done with tasks({}/{}):'
           .format(emplName, noDone, noTask))
     for task in compTasks:
-        print("\t{}".format(task))
+        print("\t {}".format(task))
