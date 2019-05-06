@@ -9,7 +9,6 @@ if __name__ == "__main__":
                          .format(argv[1]))
     emplName = rUser.json().get('username')
     rTodo = requests.get("https://jsonplaceholder.typicode.com/todos/").json()
-    tasKeys = ['task', 'completed']
     jsonDict = {'{}'.format(argv[1]): []}
     for d in rTodo:
         if d.get('userId') == int(argv[1]):
