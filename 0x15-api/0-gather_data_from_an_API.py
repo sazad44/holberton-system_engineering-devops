@@ -5,14 +5,14 @@ from sys import argv
 
 if __name__ == "__main__":
     rUser = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                            .format(argv[1]))
+                         .format(argv[1]))
     emplName = rUser.json().get('name')
     rTodo = requests.get("https://jsonplaceholder.typicode.com/todos/").json()
     noTask = 0
     noDone = 0
     compTasks = []
     for d in rTodo:
-        if d.get('userId') == int(argv[1]) and d.get('completed') == True:
+        if d.get('userId') == int(argv[1]) and d.get('completed') is True:
             noTask += 1
             noDone += 1
             compTasks.append(d.get('title'))
