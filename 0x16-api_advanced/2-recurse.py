@@ -31,5 +31,5 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
     if response.json().get('data').get('after') is None:
         return hot_list
     return recurse(subreddit,
-            hot_list,
-            response.json().get('data').get('after'))
+                   hot_list,
+                   response.json().get('data').get('after'))
