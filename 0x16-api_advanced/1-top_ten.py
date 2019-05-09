@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""top_ten function definition"""
 import requests
 
 
@@ -11,7 +12,7 @@ def top_ten(subreddit):
                             .format(subreddit),
                             headers={'User-Agent': 'Safari 12.1'})
     if respAbout.json().get('data').get('subscribers') is None:
-        print (None)
+        print(None)
     else:
         printRange = 10
         if len(response.json().get('data').get('children')) < 10:
