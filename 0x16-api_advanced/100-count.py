@@ -25,7 +25,7 @@ def word_count(subreddit, word_list, after=None, countDict={}):
                                  'query': subreddit
                              })
     if 'error' in subRcheck.json().keys():
-        print()
+        pass
     response = requests.get("https://reddit.com/r/{}.json"
                             .format(subreddit),
                             headers={
