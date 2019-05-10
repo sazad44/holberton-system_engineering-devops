@@ -3,7 +3,14 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=None, count=0):
+def count_words(subreddit, word_list):
+    """count_words function to return printed word counts"""
+    countDict = word_count(subreddit, word_list)
+    for key in countDict:
+        print("{}: {}".format(key, countDict[key]))
+
+
+def word_count(subreddit, word_list, after=None, countDict={}):
     """
     Recurse function recursively produces a list of all hot articles
     on a subreddit
@@ -17,7 +24,7 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
                                  'query': subreddit
                              })
     if 'error' in subRcheck.json().keys():
-        return None
+        print()
     response = requests.get("https://reddit.com/r/{}.json"
                             .format(subreddit),
                             headers={
@@ -26,10 +33,18 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
                             params={
                                 'after': after
                             })
+    """Create dictionary for count record"""
     for child in response.json().get('data').get('children'):
-        hot_list.append(child.get('data').get('title'))
+        for word in child.get('data').get('title').split():
+            for wordList in word_list:
+                if wordList not in countDict.keys()\
+                   and wordList.upper() == word.upper():
+                    countDict[wordList] = 0
+                if word.upper() == wordList.upper():
+                    countDict[wordList] += 1
     if response.json().get('data').get('after') is None:
-        return hot_list
-    return recurse(subreddit,
-                   hot_list,
-                   response.json().get('data').get('after'))
+        return countDict
+    return word_count(subreddit,
+                      word_list,
+                      response.json().get('data').get('after'),
+                      countDict)
