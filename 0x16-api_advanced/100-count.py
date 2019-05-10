@@ -6,8 +6,9 @@ import requests
 def count_words(subreddit, word_list):
     """count_words function to return printed word counts"""
     countDict = word_count(subreddit, word_list)
-    for key in countDict:
-        print("{}: {}".format(key, countDict[key]))
+    for key in [v[0] for v in sorted(countDict.items(), key=lambda kv: (-kv[1], kv[0]))]:
+        if countDict[key] > 0:
+            print("{}: {}".format(key, countDict[key]))
 
 
 def word_count(subreddit, word_list, after=None, countDict={}):
@@ -37,8 +38,7 @@ def word_count(subreddit, word_list, after=None, countDict={}):
     for child in response.json().get('data').get('children'):
         for word in child.get('data').get('title').split():
             for wordList in word_list:
-                if wordList not in countDict.keys()\
-                   and wordList.upper() == word.upper():
+                if wordList not in countDict.keys():
                     countDict[wordList] = 0
                 if word.upper() == wordList.upper():
                     countDict[wordList] += 1
