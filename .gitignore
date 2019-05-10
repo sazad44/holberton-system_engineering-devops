@@ -1,1 +1,4 @@
 *~
+*pycache*
+*.pyc*
+*main*
