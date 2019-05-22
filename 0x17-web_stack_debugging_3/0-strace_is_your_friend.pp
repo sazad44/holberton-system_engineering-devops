@@ -1,3 +1,4 @@
+#Fixes Wordpress Site Error
 file { 'class-wp-locale.php':
   ensure => file,
   path   => '/var/www/html/wp-includes/class-wp-locale.php'
