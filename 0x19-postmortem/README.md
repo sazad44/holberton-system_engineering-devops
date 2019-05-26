@@ -2,7 +2,7 @@
 
 :fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
 ![IsItDown Logo](https://github.com/sazad44/holberton-system_engineering-devops/blob/master/0x19-postmortem/isitdownlogo?raw=true) 
-:fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
+:fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
 
 ## Date
 
