@@ -36,7 +36,7 @@ unable to be seen.
 
 500 Internal Server Error coming from PHP section of LAMP
 (Linux Apache MySQL PHP) stack. Settings file contained a typo
-which caused a *File Not Found* error on the PHP backend. It
+which caused a **File Not Found** error on the PHP backend. It
 was nearly invisible from the apache server because Apache
 is not equipped with alerting capabilities to signal issues
 with the content it was serving.
@@ -62,14 +62,14 @@ Wrong. The server returned 200, but not because it was serving content. It
 was rather serving something else. The good news is it served us the error in
 the PHP files. It was a typo. On line 137 of the `wp-settings.php` file, a
 require directive was referencing `class-wp-locale.phpp`. This file did not
-exist. Why? It's extension was wrong. All PHP files have a `.php` extension.
+exist. Why? Its extension was wrong. All PHP files have a `.php` extension.
 `.phpp` is a silly oversight in typing the correct file name. Once the typo
 was resolved the whole server was serving the correct website content.
 
 ## Detection
 
 Borgmon experienced a 500 Internal Server error when trying to access our site
-for his own personal inquiry into the status of another site..
+for his own personal inquiry into the status of another site.
 
 ## Corrective and Preventative Action Items
 
@@ -82,11 +82,10 @@ for his own personal inquiry into the status of another site..
 | Facilitate communication between SRE and backend departments for more robust development | prevent | agoogler | Bug 5554825 **DONE** |
 | Deploy updated wordpress site to prod | prevent | jennifer | n/a **DONE** |
 | Develop monitoring and detection tools for quicker detection of issue | mitigate | SRE Team | n/a **TODO** |
-| Freeze production until 2015-11-20 due to error budget exhaustion, or seek exception due to grotesque, unbelievable, bizarre, and unprecedented circumstances | other | docbrown | n/a **TODO** |
 
 ## Lessons Learned
 
-* Never push untested code into production no matter how small the change
+* Never push untested/poorly tested code into production no matter how small the change
 
 ### What went well
 
@@ -125,4 +124,4 @@ for his own personal inquiry into the status of another site..
 | 17:36 | **OUTAGE MITIGATED**, Serving accurate webpage to all user-facing pages now |
 | 17:55 | Conducted final check on stability of server and determined it is ok to be allowed to go |
 | 18:00 | **OUTAGE ENDS**, all traffic balanced across all clusters |
-| 18:15 | **INCIDENT ENDS**, reached exit criterion of 30 minutes' nominal performance |
+| 18:15 | **INCIDENT ENDS**, reached exit criterion of 30 minutes nominal performance |
