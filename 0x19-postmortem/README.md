@@ -23,7 +23,7 @@ down, went down. A 500 Internal Server Error disabled access for our users for
 about an hour while the issue was resolved. The irony was broadcast on Twitter
 in similar form and tone to this one. An hour of server debugging led to a
 resolution.
-![Twitter Shot at IsItDown]()
+![Twitter Shot at IsItDown](https://github.com/sazad44/holberton-system_engineering-devops/blob/master/0x19-postmortem/isitdowntweet?raw=true)
 
 ## Impact
 
