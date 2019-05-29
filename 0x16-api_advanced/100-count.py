@@ -6,7 +6,8 @@ import requests
 def count_words(subreddit, word_list):
     """count_words function to return printed word counts"""
     countDict = word_count(subreddit, word_list)
-    for key in [v[0] for v in sorted(countDict.items(), key=lambda kv: (-kv[1], kv[0]))]:
+    for key in [v[0] for v in
+                sorted(countDict.items(), key=lambda kv: (-kv[1], kv[0]))]:
         if countDict[key] > 0:
             print("{}: {}".format(key, countDict[key]))
 
