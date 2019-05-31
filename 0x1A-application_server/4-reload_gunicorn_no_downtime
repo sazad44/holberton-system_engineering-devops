@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Reloading gunicorn smoothly by preserving master process
+sudo reload gunicorn
